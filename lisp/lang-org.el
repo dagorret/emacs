@@ -18,7 +18,7 @@
       org-log-done 'time)              ;; timestamp cuando marcas DONE
 
 ;; Paquete extra opcional
-(use-package org-contrib :after org)
+;;(use-package org-contrib :after org)
 
 ;; Plantillas de captura
 (setq org-capture-templates

@@ -34,15 +34,38 @@
   (pdf-tools-install))
 
 ;; ============================================================
-;; ORTOGRAFÍA (HUNSPELL) + FLYSPELL
+;; ORTOGRAFÍA (HUNSPELL) + FLYSPELL (ES_AR + EN_US)
 ;; ============================================================
 
-(setq ispell-program-name "hunspell"
-      ispell-dictionary "es_AR") ;; Cambiar si preferís es_ES
+;; Programa externo
+(setq ispell-program-name "hunspell")
 
+;; Diccionario por defecto: español (Argentina)
+(setq ispell-dictionary "es_AR")
+
+;; Cambiar diccionario a ES y EN de forma simple
+(defun my/dict-spanish ()
+  "Cambiar diccionario a español (es_AR)."
+  (interactive)
+  (ispell-change-dictionary "es_AR")
+  (message "Diccionario cambiado a español (es_AR)"))
+
+(defun my/dict-english ()
+  "Cambiar diccionario a inglés (en_US)."
+  (interactive)
+  (ispell-change-dictionary "en_US")
+  (message "Dictionary changed to English (en_US)"))
+
+(global-set-key (kbd "C-c d s") #'my/dict-spanish)
+(global-set-key (kbd "C-c d e") #'my/dict-english)
+
+;; Flyspell en modos de texto y en comentarios de código
 (use-package flyspell
   :hook ((text-mode . flyspell-mode)
-         (prog-mode . flyspell-prog-mode)))
+         (prog-mode . flyspell-prog-mode))
+  :init
+  (setq flyspell-issue-message-flag nil
+        flyspell-issue-welcome-flag nil))
 
 ;; ============================================================
 ;; GRAMÁTICA (LANGUAGETOOL)

@@ -31,7 +31,22 @@
 (require 'lang-org)
 (require 'lang-writing)
 (require 'lang-prog)
+(require 'lang-web)
+(require 'lang-web-extras)
 
 (provide 'init)
 ;;; init.el ends here
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(php-mode rustic lsp-pyright python-mode yasnippet-snippets which-key vertico undo-tree projectile pdf-tools org-bullets orderless marginalia magit lsp-ui langtool flycheck corfu consult auctex)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

@@ -21,14 +21,15 @@
         '(("jsx" . "\\.jsx\\'")
           ("tsx" . "\\.tsx\\'"))))
 
-;; LSP para JS/TS/JSX/TSX
-(add-hook 'js-mode-hook #'lsp-deferred)
-(add-hook 'typescript-mode-hook #'lsp-deferred)
-(add-hook 'web-mode-hook
-          (lambda ()
-            (when (or (and buffer-file-name (string-suffix-p ".tsx" buffer-file-name))
-                      (and buffer-file-name (string-suffix-p ".jsx" buffer-file-name)))
-              (lsp-deferred))))
+;; JSX / TSX (React, etc.) + HTML con web-mode
+(use-package web-mode
+  :mode (("\\.html?\\'" . web-mode)   ;; <- HTML y HTM
+         ("\\.jsx\\'"   . web-mode)
+         ("\\.tsx\\'"   . web-mode))
+  :config
+  (setq web-mode-content-types-alist
+        '(("jsx" . "\\.jsx\\'")
+          ("tsx" . "\\.tsx\\'"))))
 
 ;; ============================================================
 ;; CSS / SCSS

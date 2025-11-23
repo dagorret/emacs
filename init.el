@@ -26,6 +26,7 @@
 
 ;; Cargar módulos (los crearemos en los próximos pasos)
 (require 'core-base)
+(require 'core-files)
 (require 'core-ui)
 (require 'core-dev)
 (require 'lang-org)

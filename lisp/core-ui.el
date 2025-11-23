@@ -46,7 +46,12 @@
 ;; Corfu: completado en el buffer (como el popup de Doom)
 (use-package corfu
   :init
-  (global-corfu-mode))
+  (global-corfu-mode)
+  :custom
+  (corfu-auto t)          ;; popup automático
+  (corfu-auto-delay 0.0)
+  (corfu-auto-prefix 1))
+
 
 (provide 'core-ui)
 ;;; core-ui.el ends here

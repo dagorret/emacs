@@ -39,8 +39,8 @@
 ;; ==========================================
 ;; CUA mode (Ctrl+C / Ctrl+V / Ctrl+X / Shift+flechas)
 ;; ==========================================
-(cua-mode 1)
-(setq cua-enable-cua-keys t)
+;(cua-mode 1)
+;(setq cua-enable-cua-keys t)
 
 (provide 'core-base)
 ;;; core-base.el ends here

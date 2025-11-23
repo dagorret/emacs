@@ -1,0 +1,17 @@
+(undo-tree-save-format-version . 1)
+"ea830e63a17e7c7661009bfdcd006835461f62b9"
+[nil nil nil nil (26915 25997 9302 170000) 0 nil]
+([nil current ((1517 . 1756) (#("(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )" 0 239 (fontified nil)) . -1517) (1514 . 1516) (#("
+" 0 1 (fontified nil)) . -1514) (1315 . 1515) (#(" " 0 1 (fontified nil)) . 1315) (1042 . 1316) (#("(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(php-mode rustic lsp-pyright python-mode yasnippet-snippets which-key vertico undo-tree projectile pdf-tools org-bullets orderless marginalia magit lsp-ui langtool flycheck corfu consult auctex)))" 0 474 (fontified nil)) . -1042) (t 26915 25913 595661 353000)) nil (26915 25997 9298 148000) 0 nil])
+nil

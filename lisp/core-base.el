@@ -1,5 +1,8 @@
 ;;; core-base.el --- Ajustes básicos de Emacs -*- lexical-binding: t; -*-
 
+;;;Ocultar Warning
+;;(setq native-comp-async-report-warnings-errors nil)
+
 ;; Sin pantalla de inicio ni mensajes molestos
 (setq inhibit-startup-message t
       inhibit-startup-echo-area-message t)
@@ -32,6 +35,12 @@
 
 ;; Autocerrar paréntesis, comillas, etc.
 (electric-pair-mode 1)
+
+;; ==========================================
+;; CUA mode (Ctrl+C / Ctrl+V / Ctrl+X / Shift+flechas)
+;; ==========================================
+(cua-mode 1)
+(setq cua-enable-cua-keys t)
 
 (provide 'core-base)
 ;;; core-base.el ends here

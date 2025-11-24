@@ -1,0 +1,162 @@
+#+title: Guía de Propiedades en Org y Org-roam
+#+author: Carlos
+#+date: [2025-02-25]
+
+* Propiedades estándar de Org-mode
+Estas propiedades vienen soportadas por Org-mode y son útiles en tareas, proyectos y organización.
+
+** ID
+Identificador único de un encabezado.
+Org y Org-roam lo usan para enlaces estables.
+
+:PROPERTIES:
+:ID: 23e40f1f-a3f9-49cd-b2ad-6c11cbb7a2c4
+:END:
+
+** CATEGORY
+Categoriza entradas (útil para agenda).
+
+:PROPERTIES:
+:CATEGORY: Emacs
+:END:
+
+** PRIORITY
+Prioridad de tareas: A, B o C.
+
+:PROPERTIES:
+:PRIORITY: A
+:END:
+
+** STYLE
+Determina el comportamiento de un TODO.
+Ejemplo para hábitos:
+
+:PROPERTIES:
+:STYLE: habit
+:END:
+
+** COOKIE_DATA
+Configura conteo de subtareas:
+
+:PROPERTIES:
+:COOKIE_DATA: todo recursive
+:END:
+
+
+
+* Propiedades específicas de Org-roam
+Org-roam usa propiedades especiales para manejo de notas enlazadas.
+
+** ROAM_ALIASES
+Nombres alternativos para una nota.
+
+:PROPERTIES:
+:ROAM_ALIASES: "Productividad" "Mejorar productividad"
+:END:
+
+** ROAM_TAGS
+Etiquetas de notas (muy útil para agrupar).
+
+:PROPERTIES:
+:ROAM_TAGS: productividad foco organizacion
+:END:
+
+** ROAM_REFS
+Para guardar referencias externas:
+links, papers, artículos, libros.
+
+:PROPERTIES:
+:ROAM_REFS: https://ejemplo.com/productividad
+:END:
+
+** ID
+Org-roam crea uno automáticamente al generar la nota:
+
+:PROPERTIES:
+:ID: 5b0f1aae-c232-4c19-beb4-e70b2c9a7f8d
+:END:
+
+
+
+* Propiedades útiles creadas por el usuario
+Estas no vienen predefinidas: vos las inventás y son muy útiles.
+
+** CREATED
+Fecha de creación de la nota.
+
+:PROPERTIES:
+:CREATED: [2025-02-25]
+:END:
+
+** UPDATED / LAST_MODIFIED
+Fecha de última modificación.
+
+:PROPERTIES:
+:UPDATED: [2025-02-25 18:14]
+:END:
+
+** SOURCE
+De dónde viene la información:
+URL, libro, título, video, revista.
+
+:PROPERTIES:
+:SOURCE: https://ejemplo.com/articulo
+:END:
+
+** AUTHOR
+Autor del artículo o fuente:
+
+:PROPERTIES:
+:AUTHOR: Cal Newport
+:END:
+
+** TIPO / TYPE
+Categorizar tus notas:
+
+:PROPERTIES:
+:TIPO: Articulo
+:END:
+
+Ejemplos de valores:
+- Concepto
+- Artículo
+- Idea
+- Proyecto
+- Apunte
+- Investigación
+
+** TOPIC
+Tema general al que pertenece la nota:
+
+:PROPERTIES:
+:TOPIC: Emacs
+:END:
+
+** STATUS
+Estado de un proyecto, idea o investigación:
+
+:PROPERTIES:
+:STATUS: en-progreso
+:END:
+
+** CONTEXT
+Contexto donde aplica la nota:
+
+:PROPERTIES:
+:CONTEXT: trabajo
+:END:
+
+** DIFFICULTY
+Para notas técnicas:
+
+:PROPERTIES:
+:DIFFICULTY: media
+:END:
+
+** RATING
+Para libros, películas, música, artículos:
+
+:PROPERTIES:
+:RATING: 4/5
+:END:
+

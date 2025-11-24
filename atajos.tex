@@ -1,0 +1,630 @@
+% Created 2025-11-24 lun 00:24
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Carlos}
+\date{\today}
+\title{Documentación de atajos y comandos Emacs}
+\hypersetup{
+ pdfauthor={Carlos},
+ pdftitle={Documentación de atajos y comandos Emacs},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.3 (Org mode 9.6.15)}, 
+ pdflang={Spanish}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{Introducción}
+\label{sec:org00f8e16}
+Este archivo documenta:
+
+\begin{itemize}
+\item Los atajos de teclado \textbf{básicos} de Emacs (los más usados para movimiento,
+cortar/pegar, ventanas, archivos, etc.).
+\item Todos los atajos \textbf{personalizados} definidos en mi configuración:
+\begin{itemize}
+\item \texttt{core-base.el}
+\item \texttt{core-files.el}
+\item \texttt{core-ui.el}
+\item \texttt{core-dev.el}
+\item \texttt{core-notes.el}
+\item \texttt{lang-org.el}
+\item \texttt{lang-writing.el}
+\item \texttt{lang-prog.el}
+\item \texttt{lang-web.el}
+\item \texttt{lang-web-extras.el}
+\end{itemize}
+\item Las funciones \texttt{my/...} que agregan comportamiento nuevo, con su código
+fuente en bloques \texttt{emacs-lisp}.
+\end{itemize}
+
+Puedo abrir este archivo dentro de Emacs y usarlo como manual rápido.
+
+\section{Convenciones de teclas}
+\label{sec:orgd6f2241}
+
+\begin{description}
+\item[{\texttt{C-}}] tecla Control
+\item[{\texttt{M-}}] tecla Meta (Alt o \texttt{ESC})
+\item[{\texttt{S-}}] tecla Shift
+\item Ejemplos:
+\begin{itemize}
+\item \texttt{C-x C-f}  → Control + x, luego Control + f
+\item \texttt{M-x}      → Meta (Alt) + x
+\item \texttt{<f6>}     → tecla de función F6
+\end{itemize}
+\end{description}
+
+\section{Movimiento, edición, cortar y pegar (por defecto)}
+\label{sec:orge39f18d}
+
+\subsection{Movimiento del cursor}
+\label{sec:org56cb0d8}
+
+\begin{center}
+\begin{tabular}{ll}
+Tecla & Acción\\[0pt]
+\hline
+C-f & Carácter adelante\\[0pt]
+C-b & Carácter atrás\\[0pt]
+C-n & Línea siguiente\\[0pt]
+C-p & Línea anterior\\[0pt]
+M-f & Palabra adelante\\[0pt]
+M-b & Palabra atrás\\[0pt]
+C-a & Inicio de línea\\[0pt]
+C-e & Fin de línea\\[0pt]
+M-a & Inicio de oración\\[0pt]
+M-e & Fin de oración\\[0pt]
+M-< & Principio del buffer\\[0pt]
+M-> & Final del buffer\\[0pt]
+C-v & Página abajo\\[0pt]
+M-v & Página arriba\\[0pt]
+\end{tabular}
+\end{center}
+
+\subsection{Selección, cortar, copiar, pegar}
+\label{sec:org09a08d3}
+
+\begin{center}
+\begin{tabular}{ll}
+Tecla & Acción\\[0pt]
+\hline
+C-SPC & Empezar a marcar región\\[0pt]
+C-g & Cancelar región/comando\\[0pt]
+C-w & Cortar (kill) región\\[0pt]
+M-w & Copiar región\\[0pt]
+C-y & Pegar (yank)\\[0pt]
+M-y & Navegar por el kill-ring\\[0pt]
+\end{tabular}
+\end{center}
+
+\subsection{Deshacer}
+\label{sec:org777e709}
+
+\begin{center}
+\begin{tabular}{ll}
+Tecla & Acción\\[0pt]
+\hline
+C-/ & Deshacer\\[0pt]
+C-\_ & Deshacer\\[0pt]
+\end{tabular}
+\end{center}
+
+\section{Archivos y buffers}
+\label{sec:org95f46e6}
+
+\subsection{Archivos}
+\label{sec:org269ac6d}
+
+\begin{center}
+\begin{tabular}{ll}
+Tecla & Acción\\[0pt]
+\hline
+C-x C-f & Abrir archivo\\[0pt]
+C-x C-s & Guardar archivo\\[0pt]
+C-x C-w & Guardar como…\\[0pt]
+C-x C-v & Reemplazar buffer por otro\\[0pt]
+\end{tabular}
+\end{center}
+
+\subsection{Buffers}
+\label{sec:orge822816}
+
+\begin{center}
+\begin{tabular}{ll}
+Tecla & Acción\\[0pt]
+\hline
+C-x b & Cambiar de buffer\\[0pt]
+C-x C-b & Lista de buffers\\[0pt]
+C-x k & Cerrar (kill) buffer actual\\[0pt]
+\end{tabular}
+\end{center}
+
+\section{Ventanas (splits)}
+\label{sec:orgf4a9f03}
+
+\begin{center}
+\begin{tabular}{ll}
+Tecla & Acción\\[0pt]
+\hline
+C-x 1 & Dejar solo la ventana actual\\[0pt]
+C-x 2 & Dividir horizontalmente (una arriba/otra)\\[0pt]
+C-x 3 & Dividir verticalmente (izquierda/derecha)\\[0pt]
+C-x 0 & Cerrar ventana actual\\[0pt]
+C-x o & Ir a la otra ventana\\[0pt]
+\end{tabular}
+\end{center}
+
+\section{Búsqueda y reemplazo}
+\label{sec:orgf776ec5}
+
+\begin{center}
+\begin{tabular}{ll}
+Tecla & Acción\\[0pt]
+\hline
+C-s & Búsqueda incremental adelante\\[0pt]
+C-r & Búsqueda incremental atrás\\[0pt]
+M-\% & Buscar y reemplazar (query-replace)\\[0pt]
+C-M-\% & Buscar y reemplazar con regexp\\[0pt]
+\end{tabular}
+\end{center}
+
+\section{Ayuda en Emacs}
+\label{sec:org899d823}
+
+\begin{center}
+\begin{tabular}{ll}
+Tecla & Acción\\[0pt]
+\hline
+C-h k & Describir qué hace una tecla\\[0pt]
+C-h f & Describir función\\[0pt]
+C-h v & Describir variable\\[0pt]
+C-h b & Ver todos los atajos activos en el buffer\\[0pt]
+C-h m & Ayuda de los modos activos\\[0pt]
+C-h t & Tutorial interactivo de Emacs\\[0pt]
+\end{tabular}
+\end{center}
+
+\section{Dired (gestor de archivos)}
+\label{sec:org8f1fe28}
+
+En \texttt{Dired} se agregan atajos personalizados, pero primero los básicos:
+
+\begin{center}
+\begin{tabular}{ll}
+Tecla & Acción\\[0pt]
+\hline
+RET & Abrir archivo / entrar directorio\\[0pt]
+\^{} & Subir al directorio padre\\[0pt]
++ & Crear directorio\\[0pt]
+m & Marcar archivo\\[0pt]
+u & Desmarcar archivo\\[0pt]
+d & Marcar para borrar\\[0pt]
+x & Ejecutar borrados marcados\\[0pt]
+g & Refrescar listado\\[0pt]
+\end{tabular}
+\end{center}
+
+Los atajos extra definidos en mi configuración están documentados más abajo.
+
+\section{Org mode básico}
+\label{sec:org0c649f3}
+
+\begin{center}
+\begin{tabular}{ll}
+Tecla & Acción\\[0pt]
+\hline
+TAB & Expandir/colapsar bloque\\[0pt]
+S-TAB & Ciclar visibilidad global\\[0pt]
+M-RET & Nuevo ítem al mismo nivel\\[0pt]
+M-<up> & Subir encabezado\\[0pt]
+M-<down> & Bajar encabezado\\[0pt]
+M-<left> & Promover encabezado\\[0pt]
+M-<right> & Degradar encabezado\\[0pt]
+\end{tabular}
+\end{center}
+
+TODOs y agenda:
+
+\begin{center}
+\begin{tabular}{ll}
+Tecla & Acción\\[0pt]
+\hline
+C-c C-t & Cambiar TODO/DONE\\[0pt]
+C-c . & Insertar fecha\\[0pt]
+C-c C-s & SCHEDULED\\[0pt]
+C-c C-d & DEADLINE\\[0pt]
+\end{tabular}
+\end{center}
+
+\section{Atajos personalizados globales}
+\label{sec:orgd78b4c7}
+
+Los siguientes atajos se definen en mis módulos \texttt{core-*} y \texttt{lang-*}.
+
+\subsection{Terminal integrada}
+\label{sec:org3b954b6}
+
+\begin{center}
+\begin{tabular}{lll}
+Tecla & Comando & Descripción\\[0pt]
+\hline
+C-c t & \texttt{vterm} & Abrir terminal \texttt{vterm}\\[0pt]
+\end{tabular}
+\end{center}
+
+\subsection{Layout de desarrollo}
+\label{sec:org44fe6c9}
+
+\begin{center}
+\begin{tabular}{lll}
+Tecla & Comando & Descripción\\[0pt]
+\hline
+<f9> & \texttt{my/dev-layout} & Layout con Treemacs a la izquierda, código y vterm\\[0pt]
+\end{tabular}
+\end{center}
+
+\subsection{Org-roam (notas diarias)}
+\label{sec:orga649119}
+
+\begin{center}
+\begin{tabular}{lll}
+Tecla & Comando & Descripción\\[0pt]
+\hline
+C-c n d & \texttt{org-roam-dailies-goto-today} & Ir a la nota diaria de hoy\\[0pt]
+C-c n j & \texttt{org-roam-dailies-capture-today} & Capturar entrada en el diario\\[0pt]
+\end{tabular}
+\end{center}
+
+\subsection{Org agenda y capture}
+\label{sec:orgca386f6}
+
+\begin{center}
+\begin{tabular}{lll}
+Tecla & Comando & Descripción\\[0pt]
+\hline
+C-c a & \texttt{org-agenda} & Agenda de Org\\[0pt]
+C-c c & \texttt{org-capture} & Capturas rápidas de Org\\[0pt]
+\end{tabular}
+\end{center}
+
+\subsection{Compilar y ejecutar C/C++}
+\label{sec:orgde8dfc0}
+
+\begin{center}
+\begin{tabular}{lll}
+Tecla & Comando & Descripción\\[0pt]
+\hline
+C-c r & \texttt{my/compile-and-run} & Compilar y ejecutar archivo actual\\[0pt]
+\end{tabular}
+\end{center}
+
+\subsection{Diccionarios de ortografía}
+\label{sec:orgd961ff8}
+
+\begin{center}
+\begin{tabular}{lll}
+Tecla & Comando & Descripción\\[0pt]
+\hline
+C-c d s & \texttt{my/dict-spanish} & Diccionario español (es\textsubscript{AR})\\[0pt]
+C-c d e & \texttt{my/dict-english} & Diccionario inglés (en\textsubscript{US})\\[0pt]
+\end{tabular}
+\end{center}
+
+\subsection{Exportar a DOCX}
+\label{sec:org407c1fa}
+
+\begin{center}
+\begin{tabular}{lll}
+Tecla & Comando & Descripción\\[0pt]
+\hline
+C-c e w & \texttt{my/export-buffer-to-docx} & Exportar buffer actual a DOCX usando pandoc\\[0pt]
+\end{tabular}
+\end{center}
+
+\section{Atajos personalizados en Dired}
+\label{sec:org3798b1c}
+
+En \texttt{core-files.el} se agregan atajos para crear directorios y archivos
+directamente desde Dired:
+
+\begin{center}
+\begin{tabular}{llll}
+Modo & Tecla & Comando & Descripción\\[0pt]
+\hline
+Dired & <f6> & \texttt{my/dired-create-empty-file} & Crear archivo vacío en Dired\\[0pt]
+Dired & <f7> & \texttt{my/dired-create-directory} & Crear nuevo directorio en Dired\\[0pt]
+\end{tabular}
+\end{center}
+
+\section{Atajos personalizados en \LaTeX{}}
+\label{sec:orgaf2ff31}
+
+En \texttt{lang-writing.el} (AUCTeX / \LaTeX{}):
+
+\begin{center}
+\begin{tabular}{llll}
+Modo & Tecla & Comando & Descripción\\[0pt]
+\hline
+\LaTeX{}-mode & C-c e & \texttt{my/latex-equation} & Insertar entorno \texttt{equation}\\[0pt]
+\LaTeX{}-mode & C-c f & \texttt{my/latex-figure} & Insertar entorno \texttt{figure}\\[0pt]
+\LaTeX{}-mode & C-c t & \texttt{my/latex-table} & Insertar entorno \texttt{table}\\[0pt]
+\LaTeX{}-mode & C-c i & \texttt{my/latex-itemize} & Insertar entorno \texttt{itemize}\\[0pt]
+\end{tabular}
+\end{center}
+
+\section{Funciones \texttt{my/...} y código fuente}
+\label{sec:org5c45065}
+
+A continuación, el código fuente de todas las funciones \texttt{my/...} definidas en
+los módulos. Sirve como referencia y también como ejemplo para futuras
+modificaciones.
+
+\subsection{\texttt{core-dev.el} :: layout de desarrollo}
+\label{sec:orgb26d0a7}
+
+\begin{verbatim}
+(defun my/dev-layout ()
+  "Abrir layout con Treemacs a la izquierda, código arriba y vterm abajo."
+  (interactive)
+  (delete-other-windows)
+  ;; Panel izquierdo: Treemacs
+  (treemacs)
+  ;; Nos movemos a la ventana de la derecha para código
+  (select-window (next-window))
+  ;; Partimos la derecha en dos (arriba código, abajo terminal)
+  (split-window-below)
+  ;; Ventana superior derecha: se queda para el buffer actual
+  (other-window 1)
+  ;; Ventana inferior derecha: vterm
+  (vterm)
+  ;; Volver a la ventana de código
+  (other-window -1))
+\end{verbatim}
+
+\subsection{\texttt{core-files.el} :: utilidades para Dired}
+\label{sec:org2307cc6}
+
+\begin{verbatim}
+(defun my/dired-create-directory ()
+  "Crear un nuevo directorio en el Dired actual, con un prompt claro."
+  (interactive)
+  (let* ((dir (dired-current-directory))
+         (name (read-string (format "Nombre del nuevo directorio en %s: " dir))))
+    (when (and name (not (string-empty-p name)))
+      (let ((full (expand-file-name name dir)))
+        (make-directory full t)
+        (revert-buffer)
+        (message "Directorio creado: %s" full)))))
+
+(defun my/dired-create-empty-file ()
+  "Crear un nuevo archivo vacío en el Dired actual, con un prompt claro."
+  (interactive)
+  (let* ((dir (dired-current-directory))
+         (name (read-string (format "Nombre del nuevo archivo en %s: " dir))))
+    (when (and name (not (string-empty-p name)))
+      (let ((full (expand-file-name name dir)))
+        (with-temp-buffer
+          (write-file full))
+        (revert-buffer)
+        (message "Archivo creado: %s" full)))))
+
+(with-eval-after-load 'dired
+  (define-key dired-mode-map (kbd "<f6>") #'my/dired-create-empty-file)
+  (define-key dired-mode-map (kbd "<f7>") #'my/dired-create-directory))
+\end{verbatim}
+
+\subsection{\texttt{lang-prog.el} :: programación (C/C++)}
+\label{sec:orgf9907e3}
+
+\begin{verbatim}
+(defun my/c-enabled ()
+  "Config básica para C/C++: estilo, sangría, etc."
+  (c-set-style "linux")
+  (setq c-basic-offset 4
+        indent-tabs-mode nil))
+
+(add-hook 'c-mode-hook #'my/c-enabled)
+(add-hook 'c++-mode-hook #'my/c-enabled)
+
+(defun my/compile-and-run ()
+  "Compilar y ejecutar el archivo C/C++ actual en una ventana vterm.
+Compila con g++ -std=c++20 -O2 y ejecuta el binario resultante."
+  (interactive)
+  (unless buffer-file-name
+    (user-error "El buffer no está asociado a un archivo"))
+  (save-buffer)
+  (let* ((src buffer-file-name)
+         (exe (file-name-sans-extension src))
+         (cmd (format "g++ -std=c++20 -O2 -o %s %s && %s\n" exe src exe)))
+    (unless (executable-find "g++")
+      (user-error "g++ no está instalado"))
+    (let ((vterm-buf (get-buffer "*vterm-compilacion*")))
+      (if vterm-buf
+          (pop-to-buffer vterm-buf)
+        (setq vterm-buf (vterm "*vterm-compilacion*")))
+      (vterm-send-string cmd)
+      (vterm-send-return))))
+\end{verbatim}
+
+\subsection{\texttt{lang-web-extras.el} :: helpers para Vue / Alpine, etc.}
+\label{sec:org72a6c6a}
+
+\begin{verbatim}
+(defun my/vue-insert-sfc ()
+  "Insertar skeleton básico de Single File Component Vue 3."
+  (interactive)
+  (insert "<template>\n  <div class=\"\">\n  </div>\n</template>\n\n")
+  (insert "<script setup>\n\n</script>\n\n")
+  (insert "<style scoped>\n\n</style>\n")
+  (message "Vue SFC insertado."))
+
+(defun my/alpine-insert-component ()
+  "Insertar un snippet básico para un componente con Alpine.js."
+  (interactive)
+  (insert "<div x-data=\"{ open: false }\">\n")
+  (insert "  <button @click=\"open = !open\">Toggle</button>\n")
+  (insert "  <div x-show=\"open\">\n")
+  (insert "    Contenido...\n")
+  (insert "  </div>\n")
+  (insert "</div>\n")
+  (message "Snippet Alpine.js insertado."))
+
+(defun my/tailwind-insert-container ()
+  "Insertar un contenedor básico con clases de Tailwind CSS."
+  (interactive)
+  (insert "<div class=\"max-w-4xl mx-auto px-4 sm:px-6 lg:px-8\">\n")
+  (insert "  <!-- Contenido -->\n")
+  (insert "</div>\n")
+  (message "Contenedor Tailwind CSS insertado."))
+\end{verbatim}
+
+\subsection{\texttt{lang-writing.el} :: escritura, Markdown, \LaTeX{}, ortografía, exportación}
+\label{sec:org91071a5}
+
+Incluye helpers para:
+
+\begin{itemize}
+\item Cambiar diccionarios (español/inglés).
+\item Helpers de Markdown (negrita, itálica, código, enlaces, etc.).
+\item Helpers de \LaTeX{} (entornos \texttt{equation}, \texttt{figure}, \texttt{table}, \texttt{itemize}).
+\item Exportar el archivo actual a DOCX con \texttt{pandoc}.
+\end{itemize}
+
+Código completo:
+
+\begin{verbatim}
+(defun my/dict-spanish ()
+  "Cambiar diccionario a español (es_AR)."
+  (interactive)
+  (ispell-change-dictionary "es_AR")
+  (message "Diccionario cambiado a español (es_AR)"))
+
+(defun my/dict-english ()
+  "Cambiar diccionario a inglés (en_US)."
+  (interactive)
+  (ispell-change-dictionary "en_US")
+  (message "Dictionary changed to English (en_US)"))
+
+(global-set-key (kbd "C-c d s") #'my/dict-spanish)
+(global-set-key (kbd "C-c d e") #'my/dict-english)
+
+;; Helpers Markdown
+(defun my/markdown-wrap (left right)
+  "Envolver la región activa (o palabra actual) entre LEFT y RIGHT."
+  (if (use-region-p)
+      (let ((beg (region-beginning))
+            (end (region-end)))
+        (goto-char end)
+        (insert right)
+        (goto-char beg)
+        (insert left))
+    (let ((bounds (bounds-of-thing-at-point 'word)))
+      (when bounds
+        (goto-char (cdr bounds))
+        (insert right)
+        (goto-char (car bounds))
+        (insert left)))))
+
+(defun my/markdown-bold ()
+  "Negrita Markdown para región o palabra actual."
+  (interactive)
+  (my/markdown-wrap "**" "**"))
+
+(defun my/markdown-italic ()
+  "Itálica Markdown para región o palabra actual."
+  (interactive)
+  (my/markdown-wrap "*" "*"))
+
+(defun my/markdown-inline-code ()
+  "Código en línea Markdown para región o palabra actual."
+  (interactive)
+  (my/markdown-wrap "`" "`"))
+
+(defun my/markdown-link ()
+  "Insertar un enlace Markdown. Si hay región, usarla como texto."
+  (interactive)
+  (let* ((url (read-string "URL: "))
+         (text (if (use-region-p)
+                   (buffer-substring-no-properties (region-beginning)
+                                                   (region-end))
+                 (read-string "Texto del enlace: "))))
+    (when (use-region-p)
+      (delete-region (region-beginning) (region-end)))
+    (insert (format "[%s](%s)" text url))))
+
+(defun my/markdown-setup-keys ()
+  "Configurar atajos para helpers de Markdown."
+  (local-set-key (kbd "C-c m b") #'my/markdown-bold)
+  (local-set-key (kbd "C-c m i") #'my/markdown-italic)
+  (local-set-key (kbd "C-c m c") #'my/markdown-inline-code)
+  (local-set-key (kbd "C-c m l") #'my/markdown-link))
+
+(add-hook 'markdown-mode-hook #'my/markdown-setup-keys)
+
+;; Helpers LaTeX
+(defun my/latex-insert-environment (name)
+  "Insertar un entorno LaTeX \\begin{NAME} ... \\end{NAME}, con punto de inserción en medio."
+  (interactive "sNombre del entorno: ")
+  (insert (format "\\begin{%s}\n" name))
+  (save-excursion
+    (insert (format "\n\\end{%s}\n" name))))
+
+(defun my/latex-equation ()
+  "Insertar entorno equation."
+  (interactive)
+  (my/latex-insert-environment "equation"))
+
+(defun my/latex-itemize ()
+  "Insertar entorno itemize."
+  (interactive)
+  (my/latex-insert-environment "itemize"))
+
+(defun my/latex-figure ()
+  "Insertar entorno figure."
+  (interactive)
+  (my/latex-insert-environment "figure"))
+
+(defun my/latex-table ()
+  "Insertar entorno table."
+  (interactive)
+  (my/latex-insert-environment "table"))
+
+(with-eval-after-load 'latex
+  (define-key LaTeX-mode-map (kbd "C-c e") #'my/latex-equation)
+  (define-key LaTeX-mode-map (kbd "C-c f") #'my/latex-figure)
+  (define-key LaTeX-mode-map (kbd "C-c t") #'my/latex-table)
+  (define-key LaTeX-mode-map (kbd "C-c i") #'my/latex-itemize))
+
+;; Exportar a DOCX con pandoc
+(defun my/export-buffer-to-docx ()
+  "Exportar el archivo actual a DOCX usando pandoc.
+Funciona bien para Org y Markdown."
+  (interactive)
+  (unless buffer-file-name
+    (user-error "El buffer no está asociado a un archivo"))
+  (unless (executable-find "pandoc")
+    (user-error "pandoc no está instalado"))
+  (save-buffer)
+  (let* ((in  (buffer-file-name))
+         (out (concat (file-name-sans-extension in) ".docx")))
+    (call-process "pandoc" nil "*Pandoc Output*" t in "-o" out)
+    (message "Exportado a %s" out)))
+
+(global-set-key (kbd "C-c e w") #'my/export-buffer-to-docx)
+\end{verbatim}
+\end{document}

@@ -1,0 +1,4 @@
+#+title: Proyecto — Entorno Laravel
+
+* Objetivo
+- Trabajar con Laravel + Sail + Emacs.

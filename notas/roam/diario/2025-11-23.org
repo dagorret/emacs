@@ -1,0 +1,6 @@
+#+title: Diario 2025-11-23
+
+* Hoy
+- Configurando Emacs como IDE completo.
+
+* Notas

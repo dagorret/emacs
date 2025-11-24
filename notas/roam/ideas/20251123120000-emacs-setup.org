@@ -1,0 +1,5 @@
+#+title: Idea — Emacs setup
+#+date: 2025-11-23
+
+* Idea
+- Tener una config portable en ZIP.

@@ -1,0 +1,5 @@
+#+title: Emacs Cheatsheet
+
+* Atajos básicos
+- C-x C-f: abrir archivo
+- C-x C-s: guardar archivo

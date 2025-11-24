@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -e
 
-echo "=== Instalador de herramientas web para Emacs ==="
+echo "=== Instalador de herramientas web para Emacs (LSP + JS) ==="
 
 #---------------------------------------
-# 1) Instalar Node.js + npm (si faltan)
+# 1) Node.js + npm
 #---------------------------------------
 if command -v node >/dev/null 2>&1 && command -v npm >/dev/null 2>&1; then
   echo "[OK] node y npm ya están instalados."
@@ -35,29 +35,37 @@ instalar_npm_global() {
 echo
 echo "=== Instalando paquetes npm globales ==="
 
-# 2) Tailwind CSS language server (para lsp-tailwindcss)
+# 2) Servidores LSP estilo VSCode (CSS/HTML/JSON)
+instalar_npm_global "vscode-langservers-extracted"
+
+# 3) Tailwind CSS language server (por si lo usas en algún IDE o más adelante)
 instalar_npm_global "@tailwindcss/language-server"
 
-# 3) Prettier (autoformato JS/TS/HTML/CSS)
+# 4) Prettier (autoformateo)
 instalar_npm_global "prettier"
 
-# 4) ESLint (lint JS/TS)
+# 5) ESLint (lint JS/TS)
 instalar_npm_global "eslint"
 
-# 5) Stylelint (lint CSS/SCSS)
+# 6) Stylelint (lint CSS/SCSS, por si lo usas desde terminal)
 instalar_npm_global "stylelint"
 
 echo
 echo "=== Comprobando ejecutables en PATH ==="
 
-for cmd in tailwindcss-language-server prettier eslint stylelint; do
+for cmd in \
+  vscode-css-language-server \
+  vscode-html-language-server \
+  vscode-json-language-server \
+  tailwindcss-language-server \
+  prettier eslint stylelint; do
   if command -v "$cmd" >/dev/null 2>&1; then
-    echo "[OK] $cmd encontrado en PATH: $(command -v "$cmd")"
+    echo "[OK] $cmd -> $(command -v "$cmd")"
   else
     echo "[AVISO] $cmd no se encontró en PATH (revisa ~/.npm-global o similar)."
   fi
 done
 
 echo
-echo "=== Listo. Ahora Emacs puede usar Tailwind LSP, Prettier, ESLint y Stylelint. ==="
+echo "=== Listo. Herramientas web instaladas. ==="
 

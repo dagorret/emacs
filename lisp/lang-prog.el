@@ -27,11 +27,21 @@
 ;;   rustup component add rust-analyzer
 ;;
 ;; rustic integra muy bien con lsp-mode y rust-analyzer.
+;;; ======================
+;;; RUST
+;;; ======================
 
 (use-package rustic
-  :init
-  (setq rustic-lsp-client 'lsp-mode)
-  :hook (rustic-mode . lsp-deferred))
+  :mode ("\\.rs\\'" . rustic-mode)
+  :hook ((rustic-mode . lsp-deferred))
+  :config
+  ;; Formatear automáticamente con rustfmt al guardar
+  (setq rustic-format-on-save t))
+
+;; Para tree-sitter si tu Emacs 29+ ya lo trae
+(setq treesit-language-source-alist
+      '((rust "https://github.com/tree-sitter/tree-sitter-rust")))
+
 
 ;; ============================================================
 ;; C / C++

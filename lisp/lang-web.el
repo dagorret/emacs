@@ -23,13 +23,17 @@
 
 ;; JSX / TSX (React, etc.) + HTML con web-mode
 (use-package web-mode
-  :mode (("\\.html?\\'" . web-mode)   ;; <- HTML y HTM
-         ("\\.jsx\\'"   . web-mode)
-         ("\\.tsx\\'"   . web-mode))
+  :mode (("\\.html?\\'"      . web-mode)
+         ("\\.jsx\\'"        . web-mode)
+         ("\\.tsx\\'"        . web-mode)
+         ("\\.blade\\.php\\'" . web-mode))  ;; <- Blade
   :config
   (setq web-mode-content-types-alist
         '(("jsx" . "\\.jsx\\'")
-          ("tsx" . "\\.tsx\\'"))))
+          ("tsx" . "\\.tsx\\'")))
+  ;; Blade / Laravel
+  (setq web-mode-engines-alist
+        '(("blade" . "\\.blade\\.php\\'"))))
 
 ;; ============================================================
 ;; CSS / SCSS

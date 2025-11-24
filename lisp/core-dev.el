@@ -65,6 +65,34 @@
 
 (setq treesit-font-lock-level 3)
 
+;;; Terminal integrada ---------------------------------------------
+
+(use-package vterm
+  :commands vterm
+  :init
+  ;; Atajo global para abrir una terminal rápida
+  (global-set-key (kbd "C-c t") #'vterm))
+
+;;; Layout tipo IDE: Treemacs + código + terminal ------------------
+
+(defun my/dev-layout ()
+  "Abrir layout con Treemacs a la izquierda, código arriba y vterm abajo."
+  (interactive)
+  (delete-other-windows)
+  ;; Panel izquierdo: Treemacs
+  (treemacs)
+  ;; Nos movemos a la ventana de la derecha para código
+  (select-window (next-window))
+  ;; Partimos la derecha en dos (arriba código, abajo terminal)
+  (split-window-below)
+  ;; Ventana superior derecha: se queda para el código actual
+  ;; Ventana inferior derecha: vterm
+  (other-window 1)
+  (vterm))
+
+;; F9 para montar el layout de desarrollo
+(global-set-key (kbd "<f9>") #'my/dev-layout)
+
 (provide 'core-dev)
 ;;; core-dev.el ends here
 

@@ -30,6 +30,7 @@
 (require 'core-ui)
 (require 'core-dev)
 (require 'lang-org)
+(require 'core-notes)
 (require 'lang-writing)
 (require 'lang-prog)
 (require 'lang-web)

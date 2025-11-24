@@ -1,7 +1,7 @@
 ;;; init.el --- Config principal Emacs -*- lexical-binding: t; -*-
 
 ;; ------------------------------------------------------------
-;; Repos de paquetes + use-package
+;; Repositorios de paquetes + use-package
 ;; ------------------------------------------------------------
 (require 'package)
 (setq package-archives
@@ -21,10 +21,14 @@
 
 (setq use-package-always-ensure t)
 
-;; Carpeta lisp/ donde están los módulos
+;; ------------------------------------------------------------
+;; Carpeta lisp/ donde están los módulos propios
+;; ------------------------------------------------------------
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
-;; Cargar módulos (los crearemos en los próximos pasos)
+;; ------------------------------------------------------------
+;; Cargar módulos principales (tu estructura actual)
+;; ------------------------------------------------------------
 (require 'core-base)
 (require 'core-files)
 (require 'core-ui)
@@ -36,19 +40,26 @@
 (require 'lang-web)
 (require 'lang-web-extras)
 
+;; ------------------------------------------------------------
+;; Plantillas de captura personales
+;; ------------------------------------------------------------
+(require 'org-capture-templates)
+
+;; ------------------------------------------------------------
+;; Personalizaciones automáticas de Emacs
+;; ------------------------------------------------------------
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; Your init file should contain only one such instance.
+ '(package-selected-packages
+   '(php-mode rustic lsp-pyright python-mode yasnippet-snippets which-key
+              vertico undo-tree projectile pdf-tools org-bullets
+              orderless marginalia magit lsp-ui langtool flycheck
+              corfu consult auctex)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ )
+
 (provide 'init)
 ;;; init.el ends here
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(php-mode rustic lsp-pyright python-mode yasnippet-snippets which-key vertico undo-tree projectile pdf-tools org-bullets orderless marginalia magit lsp-ui langtool flycheck corfu consult auctex)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

@@ -1,0 +1,8 @@
+(undo-tree-save-format-version . 1)
+"0f41806b65b74bcf45ed9ce84c6565a9c62ba0ee"
+[nil nil nil nil (26915 58295 824360 930000) 0 nil]
+([nil nil ((#("(provide 'org-capture-templates-carlos)" 0 1 (fontified t) 1 8 (face font-lock-keyword-face fontified t) 8 10 (fontified t) 10 38 (face font-lock-constant-face fontified t) 38 39 (fontified t)) . -2364) (undo-tree-id8 . -39) 2403 (t 26916 1164 0 0)) nil (26915 58295 824360 41000) 0 nil])
+([nil nil ((nil rear-nonsticky nil 2396 . 2397) (nil fontified nil 2364 . 2397) (2364 . 2397)) nil (26915 58295 824359 73000) 0 nil])
+([nil current ((#("
+" 0 1 (rear-nonsticky t fontified t)) . -2396) (undo-tree-id0 . -1) (undo-tree-id1 . -1) (undo-tree-id2 . -1) (undo-tree-id3 . -1) (undo-tree-id4 . -1) (undo-tree-id5 . -1) (undo-tree-id6 . -1) (undo-tree-id7 . -1) 2397) nil (26915 58295 824356 270000) 0 nil])
+nil

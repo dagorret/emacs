@@ -33,7 +33,9 @@
   :bind (("C-c n l" . org-roam-buffer-toggle)   ;; Backlinks panel
          ("C-c n f" . org-roam-node-find)       ;; Buscar nota
          ("C-c n i" . org-roam-node-insert)     ;; Insertar enlace
-         ("C-c n c" . org-roam-capture))        ;; Capturar nota nueva
+         ("C-c n c" . org-roam-capture)         ;; Capturar nota nueva
+         ("C-c n g" . org-roam-graph))          ;; Grafo visual
+
   :config
   ;; Base de datos siempre al día
   (org-roam-db-autosync-mode)

@@ -1,0 +1,6 @@
+
+@media print {
+  body { font-family: serif; font-size: 12pt; color:#000; }
+  h1,h2,h3 { color:#000; }
+  a { color:#000; text-decoration:none; }
+}
